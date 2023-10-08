@@ -26,8 +26,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Open chad tree
-keymap('n', '<leader>e', ':CHADopen<CR>', {noremap = true})
+-- Open nvim tree
+keymap('n', '<leader>e', ':NvimTreeFindFileToggle<CR>', {noremap = true})
 
 -- Insert --
 keymap("i", "jk", "<Esc>", opts)

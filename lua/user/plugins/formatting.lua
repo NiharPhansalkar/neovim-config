@@ -6,9 +6,13 @@ return {
 
     require("conform.formatters.prettier").args = function(ctx)
       local args = { "--stdin-filepath", "$FILENAME" }
-      local found = vim.fs.find(".prettierrc.json", { upward = true, path = ctx.dirname })[1]
-      if found then
-        vim.list_extend(args, { "--config", found })
+      local starting_dir = vim.fn.expand("~/.config/nvim")
+      local shell_command =
+        string.format("find %s -type f -name '.prettierrc.json' -print -quit", vim.fn.shellescape(starting_dir))
+      local found = vim.fn.systemlist(shell_command)
+      print("Found: ", vim.inspect(found))
+      if #found > 0 then
+        vim.list_extend(args, { "--config", found[1] })
       end
       return args
     end

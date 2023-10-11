@@ -16,7 +16,6 @@ return {
         "pylint",
         "eslint_d",
         "cpplint",
-        "luacheck",
         "yamllint",
         "sqlfluff",
         "jsonlint",

@@ -15,7 +15,6 @@ return {
       python = { "pylint" },
       c = { "cpplint" },
       cpp = { "cpplint" },
-      lua = { "luacheck" },
       yaml = { "yamllint" },
       sql = { "sqlfluff" },
       json = { "jsonlint" },
@@ -34,5 +33,8 @@ return {
     vim.keymap.set("n", "<leader>l", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
+
+    local eslint_d = require("lint").linters.eslint_d
+    eslint_d.config_file = os.getenv("HOME") .. "/.eslintrc"
   end,
 }

@@ -9,10 +9,6 @@ return {
 
     mason_tool_installer.setup {
       ensure_installed = {
-        "prettier",
-        "stylua",
-        "isort",
-        "black",
         "pylint",
         "eslint_d",
         "cpplint",
